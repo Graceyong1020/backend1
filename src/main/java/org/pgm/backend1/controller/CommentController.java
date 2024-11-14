@@ -18,7 +18,7 @@ public class CommentController {
     private final CommentService commentService;
 
     @PostMapping("/{boardId}") // postmapping 자체가 create를 의미
-    public ResponseEntity<Long> addComment(@PathVariable("boarId") Long boardId,
+    public ResponseEntity<Long> addComment(@PathVariable("boardId") Long boardId,
                                         @RequestBody CommentDTO commentDTO) {
         Comment comment = commentService.saveComment(boardId, commentDTO);
         return ResponseEntity.ok(comment.getId());

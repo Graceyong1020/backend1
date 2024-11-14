@@ -18,7 +18,7 @@ import java.util.List;
 @NoArgsConstructor // default 생성자로 만들때
 @AllArgsConstructor
 @Builder
-public class Comment {
+public class Comment { // 엔티티는 parentId 못 받음. 그래서 DTO 만들어서 받아야 함
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

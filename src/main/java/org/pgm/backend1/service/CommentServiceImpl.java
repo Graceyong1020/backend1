@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class CommentServiceImpl implements CommentService{
+public class CommentServiceImpl implements CommentService {
 
     private final CommentRepository commentRepository;
     private final BoardRepository boardRepository;
@@ -27,11 +27,11 @@ public class CommentServiceImpl implements CommentService{
                 .content(commentDTO.getContent())
                 .writer(commentDTO.getWriter())
                 .build();
-        if(commentDTO.getParentId() != null){ // 부모 댓글이 있을 경우
+        if (commentDTO.getParentId() != null) { // 부모 댓글이 있을 경우
             Comment parent = commentRepository.findById(commentDTO.getParentId()).orElseThrow();
             comment.setParent(parent);
         }
-        board.setCommentCount(board.getCommentCount() + 1);
+        // board.setCommentCount(board.getCommentCount() + 1);
         return commentRepository.save(comment);
 
     }
